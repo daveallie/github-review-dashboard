@@ -1,0 +1,47 @@
+import React from 'react';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import { Grouping } from '../types';
+
+type Config = {
+  showMeOnly: boolean;
+  grouping: Grouping;
+  repos: string[];
+};
+
+type ConfigContextType = {
+  config: Config;
+  setConfig: React.Dispatch<React.SetStateAction<Config>>;
+};
+
+const defaultConfig: Config = {
+  showMeOnly: false,
+  grouping: 'repo',
+  repos: [],
+};
+
+const ConfigContext = React.createContext<ConfigContextType>({
+  config: defaultConfig,
+  setConfig: () => {},
+});
+
+export default function ConfigProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [config, setConfig] = useLocalStorage<Config>('config', defaultConfig);
+
+  return (
+    <ConfigContext.Provider value={{ config, setConfig }}>
+      {children}
+    </ConfigContext.Provider>
+  );
+}
+
+export function useConfig() {
+  const context = React.useContext(ConfigContext);
+  if (context === null) {
+    throw new Error('ConfigContext is null');
+  }
+  return context;
+}

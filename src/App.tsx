@@ -1,17 +1,19 @@
 import React from 'react';
 import { ChakraProvider, Container } from '@chakra-ui/react';
-import './App.css';
 import GithubTokenProvider from './contexts/GithubTokenProvider';
 import Main from './Main';
+import ConfigProvider from './contexts/ConfigProvider';
 
 function App() {
   return (
     <ChakraProvider>
-      <GithubTokenProvider>
-        <Container maxW="8xl">
-          <Main />
-        </Container>
-      </GithubTokenProvider>
+      <ConfigProvider>
+        <GithubTokenProvider>
+          <Container maxW="8xl">
+            <Main />
+          </Container>
+        </GithubTokenProvider>
+      </ConfigProvider>
     </ChakraProvider>
   );
 }
