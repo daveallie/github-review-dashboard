@@ -5,6 +5,7 @@ import { Grouping } from '../types';
 type Config = {
   showMeOnly: boolean;
   grouping: Grouping;
+  autoRefresh: number;
   repos: string[];
 };
 
@@ -16,6 +17,7 @@ type ConfigContextType = {
 const defaultConfig: Config = {
   showMeOnly: false,
   grouping: 'repo',
+  autoRefresh: 300,
   repos: [],
 };
 

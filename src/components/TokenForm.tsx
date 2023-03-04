@@ -39,6 +39,7 @@ export default function TokenForm() {
           <Input
             value={localToken}
             onChange={(event) => setLocalToken(event.target.value)}
+            placeholder="github_pat_..."
           />
           <FormHelperText>
             Head to{' '}
