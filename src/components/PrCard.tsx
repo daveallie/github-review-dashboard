@@ -15,8 +15,20 @@ import {
   Text,
   Tooltip,
 } from '@chakra-ui/react';
-import { SmallAddIcon } from '@chakra-ui/icons';
+import { AddIcon, ChatIcon } from '@chakra-ui/icons';
 import { PrData } from '../types';
+
+const BADGE_COLOR: { [status: string]: string } = {
+  APPROVED: 'green',
+  CHANGES_REQUESTED: 'red',
+};
+
+const BADGE_TEXT: { [status: string]: string } = {
+  APPROVED: 'Approved',
+  CHANGES_REQUESTED: 'Changes requested',
+  COMMENTED: 'Commented',
+  DISMISSED: 'Dismissed',
+};
 
 export default function PrCard({
   pr,
@@ -73,26 +85,35 @@ export default function PrCard({
               return (
                 <Flex key={r.id} gap={4} direction="row" alignItems="center">
                   <Avatar src={r.user?.avatar_url} name={r.user?.login} />
-                  {r.state === 'APPROVED' ? (
-                    <Badge colorScheme="green">Approved</Badge>
-                  ) : null}
-                  {r.state === 'CHANGES_REQUESTED' ? (
-                    <Badge colorScheme="red">Changes requested</Badge>
-                  ) : null}
-                  {r.state === 'COMMENTED' ? <Badge>Commented</Badge> : null}
-                  {r.state === 'DISMISSED' ? <Badge>Dismissed</Badge> : null}
-                  {newCommits > 0 ? (
-                    <Tooltip
-                      label={`${newCommits} new commit${
-                        newCommits > 1 ? 's' : ''
-                      } since last review`}
+
+                  <Flex direction="row" gap={2} alignItems="center">
+                    <Badge
+                      colorScheme={BADGE_COLOR[r.state]}
+                      sx={{ cursor: 'pointer' }}
+                      onClick={() => window.open(r.html_url, '_blank')}
                     >
-                      <Badge colorScheme="pink">
-                        <SmallAddIcon boxSize={4} mb="1px" />
-                        {newCommits}
-                      </Badge>
-                    </Tooltip>
-                  ) : null}
+                      {BADGE_TEXT[r.state] || r.state}
+                    </Badge>
+                    {r.body ? (
+                      <Tooltip label={r.body}>
+                        <Badge>
+                          <ChatIcon boxSize={2} mb="1px" />
+                        </Badge>
+                      </Tooltip>
+                    ) : null}
+                    {newCommits > 0 ? (
+                      <Tooltip
+                        label={`${newCommits} new commit${
+                          newCommits > 1 ? 's' : ''
+                        } since last review`}
+                      >
+                        <Badge colorScheme="pink">
+                          <AddIcon boxSize={2} mb="1px" mr={1} />
+                          {newCommits}
+                        </Badge>
+                      </Tooltip>
+                    ) : null}
+                  </Flex>
                 </Flex>
               );
             })}
