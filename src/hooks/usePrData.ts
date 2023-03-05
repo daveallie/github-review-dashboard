@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Octokit } from 'octokit';
-import { flatten, sortBy, uniq } from 'lodash';
+import { flatten, pick, sortBy, uniq } from 'lodash';
 import { PrData } from '../types';
 import useLogin from './useLogin';
 import { useConfig } from '../contexts/ConfigProvider';
@@ -26,6 +26,8 @@ function useRawPrData(): {
       setData({});
       return;
     }
+
+    setData((data) => pick(data, repos));
 
     const octokit = new Octokit({ auth: token });
 
@@ -97,8 +99,8 @@ export default function usePrData(): {
     filtered.forEach((d) => {
       switch (grouping) {
         case 'repo':
-          grouped[d.pr.head.repo.full_name] = [
-            ...(grouped[d.pr.head.repo.full_name] || []),
+          grouped[d.pr.base.repo.full_name] = [
+            ...(grouped[d.pr.base.repo.full_name] || []),
             d,
           ];
           break;

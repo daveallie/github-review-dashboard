@@ -58,7 +58,7 @@ export default function ConfigDrawer({
   const addNewRepo = useCallback(() => {
     setConfig((c) => ({
       ...c,
-      repos: [...c.repos, newRepoInput],
+      repos: [...c.repos, newRepoInput].sort(),
     }));
     onNewRepoModalClose();
   }, [newRepoInput, onNewRepoModalClose, setConfig]);
