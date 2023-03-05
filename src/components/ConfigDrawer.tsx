@@ -26,10 +26,12 @@ import {
   Select,
   Stack,
   useBoolean,
+  useColorMode,
 } from '@chakra-ui/react';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useConfig } from '../contexts/ConfigProvider';
 import { AddIcon, CloseIcon } from '@chakra-ui/icons';
+import { uniq } from 'lodash';
 
 export default function ConfigDrawer({
   isOpen,
@@ -43,6 +45,7 @@ export default function ConfigDrawer({
   const { config, setConfig } = useConfig();
   const [newRepoModalOpen, setNewRepoModalOpen] = useBoolean();
   const [newRepoInput, setNewRepoInput] = useState('');
+  const { colorMode, toggleColorMode } = useColorMode();
 
   useEffect(() => {
     if (config.repos.length === 0 && !isOpen) {
@@ -58,7 +61,7 @@ export default function ConfigDrawer({
   const addNewRepo = useCallback(() => {
     setConfig((c) => ({
       ...c,
-      repos: [...c.repos, newRepoInput].sort(),
+      repos: uniq([...c.repos, newRepoInput]).sort(),
     }));
     onNewRepoModalClose();
   }, [newRepoInput, onNewRepoModalClose, setConfig]);
@@ -151,6 +154,9 @@ export default function ConfigDrawer({
                 >
                   Show me only
                 </Checkbox>
+                <Button onClick={toggleColorMode}>
+                  Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+                </Button>
               </Stack>
               <Divider />
               <Stack gap={2}>
