@@ -76,6 +76,7 @@ export default function ConfigDrawer({
           <ModalCloseButton />
           <ModalBody>
             <Input
+              autoFocus
               value={newRepoInput}
               placeholder="owner/repo"
               onKeyDown={(event) => {
