@@ -45,17 +45,19 @@ export default function PrCard({
       <CardHeader>
         <Flex direction="column" gap={2}>
           <Flex alignItems="center" gap={2}>
-            <Link href={pr.base.repo.html_url}>
+            <Link href={pr.base.repo.html_url} target="_blank">
               <Text fontSize="sm">{pr.base.repo.full_name}</Text>
             </Link>
             <Text fontSize="sm">/</Text>
-            <Link href={pr.html_url}>
+            <Link href={pr.html_url} target="_blank">
               <Text fontSize="sm">#{pr.number}</Text>
             </Link>
           </Flex>
           <Flex alignItems="top" gap={2}>
             <Heading size="sm">
-              <Link href={pr.html_url}>{pr.title}</Link>
+              <Link href={pr.html_url} target="_blank">
+                {pr.title}
+              </Link>
             </Heading>
             <Spacer />
             <Avatar
