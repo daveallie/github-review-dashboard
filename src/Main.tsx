@@ -4,6 +4,7 @@ import {
   Heading,
   IconButton,
   Progress,
+  SimpleGrid,
   useBoolean,
 } from '@chakra-ui/react';
 import { RepeatIcon, SettingsIcon } from '@chakra-ui/icons';
@@ -39,7 +40,7 @@ export default function Main() {
         onOpen={setDrawerOpen.on}
         onClose={setDrawerOpen.off}
       />
-      <Flex gap={4} mt={4}>
+      <Flex gap={4} mt={4} mb={8}>
         {repos.length > 0 ? (
           <Flex
             gap={4}
@@ -47,17 +48,26 @@ export default function Main() {
             alignItems="center"
             flexGrow={1}
           >
-            <Flex flexDirection="column" flexGrow={1} alignItems="flex-end">
-              Last refreshed: {new Date(runTime).toLocaleTimeString()}
-              <Progress
-                width="100%"
-                value={progress}
-                sx={{
-                  '& > div:first-child': {
-                    transitionProperty: 'width',
-                  },
-                }}
-              />
+            <Flex flexDirection="column" flexGrow={1}>
+              <Flex
+                justifyContent="space-between"
+                alignItems="center"
+                flexGrow={1}
+              >
+                {autoRefresh !== 0 ? <b>Next refresh</b> : <div />}
+                Last refreshed: {new Date(runTime).toLocaleTimeString()}
+              </Flex>
+              {autoRefresh !== 0 ? (
+                <Progress
+                  width="100%"
+                  value={100 - progress}
+                  sx={{
+                    '& > div:first-child': {
+                      transitionProperty: 'width',
+                    },
+                  }}
+                />
+              ) : null}
             </Flex>
           </Flex>
         ) : (
@@ -80,14 +90,14 @@ export default function Main() {
 
       {data.map(({ label, data }) => (
         <Fragment key={label}>
-          <Heading pt={8} pb={2}>
+          <Heading mb={2} size="lg">
             {label}
           </Heading>
-          <Flex direction={['column', 'row']} gap={4} flexWrap="wrap">
+          <SimpleGrid gap={4} mb={8} columns={{ base: 1, md: 2, lg: 3 }}>
             {data.map((d) => (
               <PrCard key={d.pr.id} {...d} />
             ))}
-          </Flex>
+          </SimpleGrid>
         </Fragment>
       ))}
     </>

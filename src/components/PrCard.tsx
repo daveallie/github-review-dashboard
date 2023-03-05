@@ -29,7 +29,7 @@ export default function PrCard({
   );
 
   return (
-    <Card width="sm" opacity={pr.draft ? 0.5 : 1}>
+    <Card opacity={pr.draft ? 0.5 : 1}>
       <CardHeader>
         <Flex direction="column" gap={2}>
           <Flex alignItems="center" gap={2}>
