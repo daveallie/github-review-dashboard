@@ -3689,10 +3689,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/openapi-types@npm:^16.1.0":
-  version: 16.1.0
-  resolution: "@octokit/openapi-types@npm:16.1.0"
-  checksum: 071458deee4fbd357a664ead9f1bf9a44cfc5c4fb0ef92e63fdbce2777c81d45a1d00d929093e5524c0aaa69d26d88cf412f5972ce3a61e1296b86808a188797
+"@octokit/openapi-types@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "@octokit/openapi-types@npm:17.0.0"
+  checksum: 64d8500891b18e9866f1e662a65041a37381c3f9e6e5ce070cd26416a85f1b93340feb068ec2e8a5d0c0f4196df02ee2de1e73c87234e3d17edf33e7483d9b69
   languageName: node
   linkType: hard
 
@@ -3769,11 +3769,11 @@ __metadata:
   linkType: hard
 
 "@octokit/types@npm:^9.0.0":
-  version: 9.1.0
-  resolution: "@octokit/types@npm:9.1.0"
+  version: 9.1.1
+  resolution: "@octokit/types@npm:9.1.1"
   dependencies:
-    "@octokit/openapi-types": ^16.1.0
-  checksum: 6d9de8efb5a1ec8d5da9076407ddaaeabdcac5d21f0a5c7c43c0485515321187b520235e4d90e322b37c6c32167a419e33a44015347a65c2ef9f8d739525f417
+    "@octokit/openapi-types": ^17.0.0
+  checksum: e28f0b00b89cf637e10dc487d3e6864aa18941f64b72af54ee1601aca889b8caaf3eb1cc323cbec0ef9d2c41a79e2885439b9c1db4a34d48c7d9202f784b202f
   languageName: node
   linkType: hard
 
