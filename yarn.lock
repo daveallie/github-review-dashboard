@@ -11085,8 +11085,8 @@ __metadata:
   linkType: hard
 
 "octokit@npm:^2.0.14":
-  version: 2.0.14
-  resolution: "octokit@npm:2.0.14"
+  version: 2.0.15
+  resolution: "octokit@npm:2.0.15"
   dependencies:
     "@octokit/app": ^13.1.1
     "@octokit/core": ^4.0.4
@@ -11096,7 +11096,7 @@ __metadata:
     "@octokit/plugin-retry": ^4.0.3
     "@octokit/plugin-throttling": ^5.0.0
     "@octokit/types": ^9.0.0
-  checksum: 549ada6e075b810fe0fb0ce0314eccbaeacb2161805b25fb38c5730eff0494773ca7209cf19eae9848161bf73327d0c2f2ff307a7e15607e3a27e39298208e59
+  checksum: a52eeab9137c7fb488dd5c10dcb8d6b9d353dd78d935c5e1186d9c024510090308056d4d3a9d1a98c5d068e99a298784fbb455eb1f824ca56cf33fb1860cc273
   languageName: node
   linkType: hard
 
