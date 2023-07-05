@@ -3837,6 +3837,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@octokit/types@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@octokit/types@npm:10.0.0"
+  dependencies:
+    "@octokit/openapi-types": ^18.0.0
+  checksum: 8aafba2ff0cd2435fb70c291bf75ed071c0fa8a865cf6169648732068a35dec7b85a345851f18920ec5f3e94ee0e954988485caac0da09ec3f6781cc44fe153a
+  languageName: node
+  linkType: hard
+
 "@octokit/types@npm:^9.0.0, @octokit/types@npm:^9.2.2":
   version: 9.3.2
   resolution: "@octokit/types@npm:9.3.2"
@@ -8366,7 +8375,7 @@ __metadata:
     "@chakra-ui/react": ^2.5.2
     "@emotion/react": ^11.10.6
     "@emotion/styled": ^11.10.6
-    "@octokit/types": ^9.0.0
+    "@octokit/types": ^10.0.0
     "@testing-library/jest-dom": ^5.14.1
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.4.3
