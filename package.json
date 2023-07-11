@@ -9,13 +9,13 @@
     "@emotion/styled": "^11.10.6",
     "framer-motion": "^10.6.0",
     "lodash": "^4.17.21",
-    "octokit": "^2.0.14",
+    "octokit": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "@octokit/types": "^10.0.0",
+    "@octokit/types": "^11.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
