@@ -34,6 +34,10 @@ function useRawPrData(): {
     repos.forEach((fullRepo) => {
       const [owner, repo] = fullRepo.split('/', 2);
 
+      if (!owner || !repo) {
+        return;
+      }
+
       octokit.rest.pulls
         .list({
           owner,
@@ -49,7 +53,7 @@ function useRawPrData(): {
           res.data.forEach((pr) => {
             fetchPrData(token, {
               number: pr.number,
-              login: pr.user?.login || '',
+              login: pr.user?.login ?? '',
               owner,
               repo,
             }).then((res) =>

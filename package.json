@@ -29,7 +29,7 @@
     "typescript": "^5.0.2"
   },
   "scripts": {
-    "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0 --cache && yarn prettier --check .",
+    "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0 --cache && yarn prettier --check . && yarn tsc",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

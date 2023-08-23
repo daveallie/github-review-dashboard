@@ -20,7 +20,7 @@ export default async function fetchPrData(
           res.data.filter((r) => r.user?.login !== pr.login),
           'user.login',
         ),
-        (v) => sortBy(v, 'submitted_at')[v.length - 1],
+        (v) => sortBy(v, 'submitted_at')[v.length - 1]!,
       ),
     );
   const commits = octokit.rest.pulls
