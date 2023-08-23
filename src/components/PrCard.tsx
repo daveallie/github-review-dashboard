@@ -37,7 +37,8 @@ export default function PrCard({
   commits = [],
 }: PrData) {
   const pendingReviewers = (pr.requested_reviewers || []).filter(
-    (u) => u.login !== pr.user?.login && !Object.keys(reviews).includes(u.login)
+    (u) =>
+      u.login !== pr.user?.login && !Object.keys(reviews).includes(u.login),
   );
 
   return (

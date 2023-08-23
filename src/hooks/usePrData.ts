@@ -58,9 +58,9 @@ function useRawPrData(): {
                 [fullRepo]: (data[fullRepo] || []).map((d) =>
                   d.pr.number === pr.number
                     ? { ...d, ...res, loading: false }
-                    : d
+                    : d,
                 ),
-              }))
+              })),
             );
           });
         });
@@ -90,7 +90,7 @@ export default function usePrData(): {
             (d.pr.assignee || d.pr.user)?.login,
             ...Object.keys(d.reviews || {}),
             ...(d.pr.requested_reviewers || []).map((r) => r.login),
-          ].includes(login)
+          ].includes(login),
         )
       : data;
 
@@ -129,7 +129,7 @@ export default function usePrData(): {
         label: group,
         data: sortBy(data, ({ pr }) => [!pr.draft, pr.updated_at]).reverse(),
       })),
-      ({ label }) => [label !== login, label.toLowerCase()]
+      ({ label }) => [label !== login, label.toLowerCase()],
     );
   }, [data, grouping, login, showMeOnly]);
 

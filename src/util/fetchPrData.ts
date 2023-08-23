@@ -4,7 +4,7 @@ import { PrData } from '../types';
 
 export default async function fetchPrData(
   token: string,
-  pr: { owner: string; repo: string; number: number; login: string }
+  pr: { owner: string; repo: string; number: number; login: string },
 ): Promise<Required<Pick<PrData, 'reviews' | 'commits'>>> {
   const octokit = new Octokit({ auth: token });
 
@@ -18,10 +18,10 @@ export default async function fetchPrData(
       mapValues(
         groupBy(
           res.data.filter((r) => r.user?.login !== pr.login),
-          'user.login'
+          'user.login',
         ),
-        (v) => sortBy(v, 'submitted_at')[v.length - 1]
-      )
+        (v) => sortBy(v, 'submitted_at')[v.length - 1],
+      ),
     );
   const commits = octokit.rest.pulls
     .listCommits({
