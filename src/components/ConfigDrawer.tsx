@@ -26,7 +26,6 @@ import {
   Select,
   Stack,
   useBoolean,
-  useColorMode,
 } from '@chakra-ui/react';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useConfig } from '../contexts/ConfigProvider';
@@ -45,7 +44,6 @@ export default function ConfigDrawer({
   const { config, setConfig } = useConfig();
   const [newRepoModalOpen, setNewRepoModalOpen] = useBoolean();
   const [newRepoInput, setNewRepoInput] = useState('');
-  const { colorMode, toggleColorMode } = useColorMode();
 
   useEffect(() => {
     if (config.repos.length === 0 && !isOpen) {
@@ -154,9 +152,6 @@ export default function ConfigDrawer({
                 >
                   Show me only
                 </Checkbox>
-                <Button onClick={toggleColorMode}>
-                  Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
-                </Button>
               </Stack>
               <Divider />
               <Stack gap={2}>

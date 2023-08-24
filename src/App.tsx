@@ -2,7 +2,6 @@ import React from 'react';
 import {
   ChakraProvider,
   ColorModeScript,
-  Container,
   extendTheme,
   ThemeConfig,
 } from '@chakra-ui/react';
@@ -24,9 +23,7 @@ function App() {
       <ChakraProvider theme={theme}>
         <ConfigProvider>
           <GithubTokenProvider>
-            <Container maxW="8xl">
-              <Main />
-            </Container>
+            <Main />
           </GithubTokenProvider>
         </ConfigProvider>
       </ChakraProvider>
