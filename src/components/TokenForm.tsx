@@ -43,7 +43,7 @@ export default function TokenForm() {
           />
           <FormHelperText>
             Head to{' '}
-            <Link href="https://github.com/settings/personal-access-tokens/new">
+            <Link href="https://github.com/settings/personal-access-tokens/new" isExternal>
               GitHub
             </Link>{' '}
             to generate a token.
@@ -59,7 +59,7 @@ export default function TokenForm() {
         <OrderedList>
           <ListItem>
             Head to{' '}
-            <Link href="https://github.com/settings/personal-access-tokens/new">
+            <Link href="https://github.com/settings/personal-access-tokens/new" isExternal>
               https://github.com/settings/personal-access-tokens/new
             </Link>
           </ListItem>
