@@ -15,11 +15,13 @@ import PrCard from './components/PrCard';
 import ConfigDrawer from './components/ConfigDrawer';
 import { useConfig } from './contexts/ConfigProvider';
 import { useCountdownProgress } from './hooks/useCountdown';
+import useDesktopNotifications from './hooks/useDesktopNotifications';
 
 export default function Main() {
   const token = useGithubToken().token;
   const { repos, autoRefresh } = useConfig().config;
-  const { runTime, data, refresh } = usePrData();
+  const { runTime, data, refresh, rawData } = usePrData();
+  useDesktopNotifications(rawData);
   const progress = useCountdownProgress(runTime, runTime + autoRefresh * 1000);
   const [drawerOpen, setDrawerOpen] = useBoolean();
 

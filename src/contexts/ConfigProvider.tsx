@@ -4,6 +4,8 @@ import { Grouping } from '../types';
 
 type Config = {
   showMeOnly: boolean;
+  notificationsEnabled: boolean;
+  notifyForComments: boolean;
   grouping: Grouping;
   autoRefresh: number;
   repos: string[];
@@ -16,6 +18,8 @@ type ConfigContextType = {
 
 const defaultConfig: Config = {
   showMeOnly: false,
+  notificationsEnabled: false,
+  notifyForComments: false,
   grouping: 'repo',
   autoRefresh: 300,
   repos: [],

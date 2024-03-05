@@ -10,5 +10,6 @@ export type PrData = {
     ]: Endpoints['GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews']['response']['data'][number];
   };
   commits?: Endpoints['GET /repos/{owner}/{repo}/pulls/{pull_number}/commits']['response']['data'];
+  comments?: Endpoints['GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments']['response']['data'];
   loading: boolean;
 };

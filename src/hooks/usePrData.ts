@@ -7,7 +7,7 @@ import { useConfig } from '../contexts/ConfigProvider';
 import { useGithubToken } from '../contexts/GithubTokenProvider';
 import fetchPrData from '../util/fetchPrData';
 
-function useRawPrData(): {
+export function useRawPrData(): {
   runTime: number;
   data: PrData[];
   refresh: () => void;
@@ -77,6 +77,7 @@ function useRawPrData(): {
 export default function usePrData(): {
   runTime: number;
   data: Array<{ label: string; data: PrData[] }>;
+  rawData: PrData[];
   refresh: () => void;
 } {
   const login = useLogin();
@@ -136,6 +137,7 @@ export default function usePrData(): {
   return {
     runTime,
     data: groupedData,
+    rawData: data,
     refresh,
   };
 }

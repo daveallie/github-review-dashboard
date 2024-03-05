@@ -70,6 +70,20 @@ export default function ConfigDrawer({
     /[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+/
   );
 
+  const requestNotificationPermission = async () => {
+    // Check if the browser supports notifications
+    if (!('Notification' in window)) {
+      alert('This browser does not support notifications.');
+      return false;
+    }
+    const permission = await Notification.requestPermission();
+    if (permission !== 'granted') {
+      alert("Notification permission denied, can't enable notifications.");
+      return false;
+    }
+    return true;
+  };
+
   return (
     <>
       <Modal isOpen={newRepoModalOpen} onClose={onNewRepoModalClose}>
@@ -147,6 +161,7 @@ export default function ConfigDrawer({
                 </div>
 
                 <Checkbox
+                  defaultChecked={config.showMeOnly}
                   checked={config.showMeOnly}
                   onChange={(e) =>
                     setConfig((c) => ({ ...c, showMeOnly: e.target.checked }))
@@ -154,6 +169,36 @@ export default function ConfigDrawer({
                 >
                   Show me only
                 </Checkbox>
+
+                <Checkbox
+                  defaultChecked={config.notificationsEnabled}
+                  checked={config.notificationsEnabled}
+                  onChange={async (e) => {
+                    if (e.target.checked)
+                      e.target.checked = await requestNotificationPermission();
+                    setConfig((c) => ({
+                      ...c,
+                      notificationsEnabled: e.target.checked,
+                    }));
+                  }}
+                >
+                  Desktop notifications
+                </Checkbox>
+                {config.notificationsEnabled && (
+                  <Checkbox
+                    defaultChecked={config.notifyForComments}
+                    checked={config.notifyForComments}
+                    onChange={(e) =>
+                      setConfig((c) => ({
+                        ...c,
+                        notifyForComments: e.target.checked,
+                      }))
+                    }
+                  >
+                    Notify for comments
+                  </Checkbox>
+                )}
+
                 <Button onClick={toggleColorMode}>
                   Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
                 </Button>

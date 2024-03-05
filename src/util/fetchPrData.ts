@@ -5,7 +5,7 @@ import { PrData } from '../types';
 export default async function fetchPrData(
   token: string,
   pr: { owner: string; repo: string; number: number; login: string }
-): Promise<Required<Pick<PrData, 'reviews' | 'commits'>>> {
+): Promise<Required<Pick<PrData, 'reviews' | 'commits' | 'comments'>>> {
   const octokit = new Octokit({ auth: token });
 
   const reviews = octokit.rest.pulls
@@ -31,8 +31,19 @@ export default async function fetchPrData(
     })
     .then((res) => res.data);
 
-  return Promise.all([reviews, commits]).then(([reviews, commits]) => ({
-    reviews,
-    commits,
-  }));
+  const comments = octokit.rest.pulls
+    .listReviewComments({
+      owner: pr.owner,
+      repo: pr.repo,
+      pull_number: pr.number,
+    })
+    .then((res) => res.data);
+
+  return Promise.all([reviews, commits, comments]).then(
+    ([reviews, commits, comments]) => ({
+      reviews,
+      commits,
+      comments,
+    })
+  );
 }
