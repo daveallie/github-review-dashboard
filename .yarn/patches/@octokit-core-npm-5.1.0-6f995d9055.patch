@@ -1,0 +1,23 @@
+diff --git a/dist-web/index.js b/dist-web/index.js
+index f72f36d6fb941e4d7b010bc80bc74f9122ab5189..ce699d44b2798a60f19afb7d41a3a9a4c30276e0 100644
+--- a/dist-web/index.js
++++ b/dist-web/index.js
+@@ -51,11 +51,15 @@ var Octokit = class {
+    */
+   static plugin(...newPlugins) {
+     const currentPlugins = this.plugins;
++    const np = newPlugins;
++
++    const plugins = currentPlugins.concat(
++      newPlugins.filter((plugin) => !currentPlugins.includes(plugin))
++    );
++
+     const NewOctokit = class extends this {
+       static {
+-        this.plugins = currentPlugins.concat(
+-          newPlugins.filter((plugin) => !currentPlugins.includes(plugin))
+-        );
++        this.plugins = plugins;
+       }
+     };
+     return NewOctokit;
