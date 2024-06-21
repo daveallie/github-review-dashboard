@@ -41,6 +41,10 @@ export default function PrCard({
       u.login !== pr.user?.login && !Object.keys(reviews).includes(u.login),
   );
 
+  const navigateToPr = () => {
+    window.open(pr.html_url, '_blank');
+  }
+
   return (
     <Card opacity={pr.draft ? 0.5 : 1}>
       <CardHeader>
@@ -69,7 +73,7 @@ export default function PrCard({
           </Flex>
         </Flex>
       </CardHeader>
-      <CardBody>
+      <CardBody onClick={navigateToPr} _hover={{ cursor: 'pointer' }}>
         {loading ? (
           <Stack>
             <Flex gap={4} direction="row" alignItems="center">
