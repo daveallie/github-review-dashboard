@@ -53,7 +53,7 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@4.5.1",
+  "packageManager": "yarn@4.5.2",
   "resolutions": {
     "@octokit/core@npm:^5.0.0": "patch:@octokit/core@npm%3A5.1.0#~/.yarn/patches/@octokit-core-npm-5.1.0-6f995d9055.patch"
   }
