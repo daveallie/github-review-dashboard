@@ -1554,8 +1554,8 @@ __metadata:
   linkType: hard
 
 "@chakra-ui/react@npm:^2.5.2":
-  version: 2.10.4
-  resolution: "@chakra-ui/react@npm:2.10.4"
+  version: 2.10.5
+  resolution: "@chakra-ui/react@npm:2.10.5"
   dependencies:
     "@chakra-ui/hooks": "npm:2.4.3"
     "@chakra-ui/styled-system": "npm:2.12.1"
@@ -1573,7 +1573,7 @@ __metadata:
     framer-motion: ">=4.0.0"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/1a0c8a3ed638ed67ebce59a5ff9c2e7c7d7b6bbe47a3e9f59a36d53a61280c0fa319999defe6b0e8b6d4dfac2fc6b8374ea1e21a496d9ca5fbd2586bb7b7cce2
+  checksum: 10c0/957637341456d567d05db5f982b8a172309d84abacbe987e46b5f018fb91407956d7d12090aada35b0da1869d8e11c40b9669ba17a9980f3769f8e4b3f362207
   languageName: node
   linkType: hard
 
