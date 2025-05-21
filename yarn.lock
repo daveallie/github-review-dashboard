@@ -1554,11 +1554,11 @@ __metadata:
   linkType: hard
 
 "@chakra-ui/react@npm:^2.5.2":
-  version: 2.10.8
-  resolution: "@chakra-ui/react@npm:2.10.8"
+  version: 2.10.9
+  resolution: "@chakra-ui/react@npm:2.10.9"
   dependencies:
     "@chakra-ui/hooks": "npm:2.4.5"
-    "@chakra-ui/styled-system": "npm:2.12.3"
+    "@chakra-ui/styled-system": "npm:2.12.4"
     "@chakra-ui/theme": "npm:3.4.9"
     "@chakra-ui/utils": "npm:2.2.5"
     "@popperjs/core": "npm:^2.11.8"
@@ -1573,17 +1573,17 @@ __metadata:
     framer-motion: ">=4.0.0"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/2ccebbb8654d72aa5735180485ecf9c9b021cf0c36d77d2011eb89d8b3d74bc26d3a0917b270981d05295ecff33c8ac656b26089eab3007b31d8aa635d443c62
+  checksum: 10c0/5f09cf69180ca6ca1812de22e22694007fdac1830e12515a1ed57cccafff553c6e8eca0122f85018643c72899be4dfddb0465b89e5f8793a4da06c29039cc4f0
   languageName: node
   linkType: hard
 
-"@chakra-ui/styled-system@npm:2.12.3":
-  version: 2.12.3
-  resolution: "@chakra-ui/styled-system@npm:2.12.3"
+"@chakra-ui/styled-system@npm:2.12.4":
+  version: 2.12.4
+  resolution: "@chakra-ui/styled-system@npm:2.12.4"
   dependencies:
     "@chakra-ui/utils": "npm:2.2.5"
     csstype: "npm:^3.1.2"
-  checksum: 10c0/0fca113261dba7070c0073d942cec108c45595060294086e94314a0404a066e31e767dc49883f22192becd62968edf95b61d9a868d5c052c1b7247fc49fd4be4
+  checksum: 10c0/c6f126d2cb100d993d5a61d0f5eab7283ebec5af2454d7ae6804bce36dbf31e1a5f57530f6274a3e510479db5abcd7421519d0bf968d401eb1ddc323fb188b92
   languageName: node
   linkType: hard
 
