@@ -18,12 +18,12 @@ import {
 import { AddIcon, ChatIcon } from '@chakra-ui/icons';
 import { PrData } from '../types';
 
-const BADGE_COLOR: { [status: string]: string } = {
+const BADGE_COLOR: Record<string, string> = {
   APPROVED: 'green',
   CHANGES_REQUESTED: 'red',
 };
 
-const BADGE_TEXT: { [status: string]: string } = {
+const BADGE_TEXT: Record<string, string> = {
   APPROVED: 'Approved',
   CHANGES_REQUESTED: 'Changes requested',
   COMMENTED: 'Commented',
@@ -43,7 +43,7 @@ export default function PrCard({
 
   const navigateToPr = () => {
     window.open(pr.html_url, '_blank');
-  }
+  };
 
   return (
     <Card opacity={pr.draft ? 0.5 : 1}>

@@ -19,9 +19,9 @@ import { useCountdownProgress } from './hooks/useCountdown';
 import NavBar from './components/NavBar';
 
 export default function Main() {
-  const token = useGithubToken().token;
+  const { token } = useGithubToken();
   const { repos, autoRefresh } = useConfig().config;
-  const { runTime, data, refresh } = usePrData();
+  const { runTime, data: prData, refresh } = usePrData();
   const progress = useCountdownProgress(runTime, runTime + autoRefresh * 1000);
   const [drawerOpen, setDrawerOpen] = useBoolean();
 
@@ -86,7 +86,7 @@ export default function Main() {
             />
           </Flex>
         </Flex>
-        {data.map(({ label, data }) => (
+        {prData.map(({ label, data }) => (
           <Fragment key={label}>
             <Heading mb={2} size="lg">
               {label}

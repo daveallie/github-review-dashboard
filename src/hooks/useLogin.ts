@@ -3,7 +3,7 @@ import { Octokit } from 'octokit';
 import { useGithubToken } from '../contexts/GithubTokenProvider';
 
 export default function useLogin() {
-  const token = useGithubToken().token;
+  const { token } = useGithubToken();
   const [login, setLogin] = useState('');
 
   useEffect(() => {
@@ -14,6 +14,7 @@ export default function useLogin() {
     const octokit = new Octokit({ auth: token });
     octokit.rest.users
       .getAuthenticated()
+      // @ts-expect-error TODO - Resolve
       .then((res) => setLogin(res.data.login));
   }, [token]);
 

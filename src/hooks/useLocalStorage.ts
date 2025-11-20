@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function getStorageValue<T extends {} | string | number>(
+function getStorageValue<T extends object | string | number>(
   key: string,
   defaultValue: T,
 ): T {
@@ -13,7 +13,7 @@ function getStorageValue<T extends {} | string | number>(
   return JSON.parse(saved) as T;
 }
 
-export function useLocalStorage<T extends {} | string | number>(
+export function useLocalStorage<T extends object | string | number>(
   key: string,
   defaultValue: T,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {

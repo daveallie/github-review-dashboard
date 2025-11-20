@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useGithubToken } from '../contexts/GithubTokenProvider';
 import {
   Button,
   Container,
@@ -14,6 +13,7 @@ import {
   OrderedList,
   Stack,
 } from '@chakra-ui/react';
+import { useGithubToken } from '../contexts/GithubTokenProvider';
 
 export default function TokenForm() {
   const tokenContext = useGithubToken();

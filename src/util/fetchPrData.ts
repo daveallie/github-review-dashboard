@@ -8,31 +8,37 @@ export default async function fetchPrData(
 ): Promise<Required<Pick<PrData, 'reviews' | 'commits'>>> {
   const octokit = new Octokit({ auth: token });
 
-  const reviews = octokit.rest.pulls
+  const reviewsPromise = octokit.rest.pulls
     .listReviews({
       owner: pr.owner,
       repo: pr.repo,
       pull_number: pr.number,
     })
-    .then((res) =>
+    // @ts-expect-error TODO - Resolve
+    .then((reviewsData) =>
       mapValues(
         groupBy(
-          res.data.filter((r) => r.user?.login !== pr.login),
+          // @ts-expect-error TODO - Resolve
+          reviewsData.data.filter((r) => r.user?.login !== pr.login),
           'user.login',
         ),
         (v) => sortBy(v, 'submitted_at')[v.length - 1]!,
       ),
     );
-  const commits = octokit.rest.pulls
+
+  const commitsPromise = octokit.rest.pulls
     .listCommits({
       owner: pr.owner,
       repo: pr.repo,
       pull_number: pr.number,
     })
-    .then((res) => res.data);
+    // @ts-expect-error TODO - Resolve
+    .then((commitData) => commitData.data);
 
-  return Promise.all([reviews, commits]).then(([reviews, commits]) => ({
-    reviews,
-    commits,
-  }));
+  return Promise.all([reviewsPromise, commitsPromise]).then(
+    ([reviews, commits]) => ({
+      reviews,
+      commits,
+    }),
+  );
 }

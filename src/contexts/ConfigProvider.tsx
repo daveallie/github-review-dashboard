@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { Grouping } from '../types';
 
-type Config = {
+interface Config {
   showMeOnly: boolean;
   grouping: Grouping;
   autoRefresh: number;
   repos: string[];
-};
+}
 
-type ConfigContextType = {
+interface ConfigContextType {
   config: Config;
   setConfig: React.Dispatch<React.SetStateAction<Config>>;
-};
+}
 
 const defaultConfig: Config = {
   showMeOnly: false,
@@ -33,10 +33,10 @@ export default function ConfigProvider({
 }) {
   const [config, setConfig] = useLocalStorage<Config>('config', defaultConfig);
 
+  const value = useMemo(() => ({ config, setConfig }), [config, setConfig]);
+
   return (
-    <ConfigContext.Provider value={{ config, setConfig }}>
-      {children}
-    </ConfigContext.Provider>
+    <ConfigContext.Provider value={value}>{children}</ConfigContext.Provider>
   );
 }
 

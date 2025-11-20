@@ -5,41 +5,49 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.5.2",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "framer-motion": "^11.0.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@octokit/types": "^16.0.0",
+    "@total-typescript/ts-reset": "^0.6.1",
+    "framer-motion": "^12.23.24",
     "lodash": "^4.17.21",
-    "octokit": "^3.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "octokit": "^5.0.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "@octokit/types": "^12.0.0",
-    "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
-    "@total-typescript/ts-reset": "^0.5.0",
-    "@types/jest": "^29.5.0",
-    "@types/node": "^20.0.0",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "eslint": "^8.47.0",
-    "prettier": "^3.0.0",
-    "typescript": "^5.2.2"
+    "@eslint/compat": "^2.0.0",
+    "@eslint/js": "^9.39.1",
+    "@stylistic/eslint-plugin": "^5.6.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/eslint-plugin-jsx-a11y": "^6.10.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.6",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.1",
+    "eslint-config-airbnb-extended": "^2.3.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import-x": "^4.16.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.47.0"
   },
   "scripts": {
-    "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0 --cache && yarn prettier --check . && yarn tsc",
+    "lint": "yarn eslint --max-warnings 0 --cache && yarn prettier --check . && yarn tsc",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -53,8 +61,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@4.11.0",
-  "resolutions": {
-    "@octokit/core@npm:^5.0.0": "patch:@octokit/core@npm%3A5.1.0#~/.yarn/patches/@octokit-core-npm-5.1.0-6f995d9055.patch"
-  }
+  "packageManager": "yarn@4.11.0"
 }

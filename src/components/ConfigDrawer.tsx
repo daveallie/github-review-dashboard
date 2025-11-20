@@ -28,9 +28,9 @@ import {
   useBoolean,
 } from '@chakra-ui/react';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useConfig } from '../contexts/ConfigProvider';
 import { AddIcon, CloseIcon } from '@chakra-ui/icons';
 import { uniq } from 'lodash';
+import { useConfig } from '../contexts/ConfigProvider';
 
 export default function ConfigDrawer({
   isOpen,
@@ -115,7 +115,7 @@ export default function ConfigDrawer({
                     onChange={(e) =>
                       setConfig((c) => ({
                         ...c,
-                        autoRefresh: parseInt(e.target.value),
+                        autoRefresh: parseInt(e.target.value, 10),
                       }))
                     }
                   >

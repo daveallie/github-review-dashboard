@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const GithubTokenContext = React.createContext<{
@@ -16,8 +16,10 @@ export default function GithubTokenProvider({
 }) {
   const [token, setToken] = useLocalStorage<string>('githubToken', '');
 
+  const value = useMemo(() => ({ token, setToken }), [token, setToken]);
+
   return (
-    <GithubTokenContext.Provider value={{ token, setToken }}>
+    <GithubTokenContext.Provider value={value}>
       {children}
     </GithubTokenContext.Provider>
   );

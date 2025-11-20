@@ -12,10 +12,10 @@ function useRawPrData(): {
   data: PrData[];
   refresh: () => void;
 } {
-  const token = useGithubToken().token;
+  const { token } = useGithubToken();
   const { repos } = useConfig().config;
   const [runTime, setRunTime] = useState(Date.now());
-  const [data, setData] = useState<{ [repo: string]: PrData[] }>({});
+  const [data, setData] = useState<Record<string, PrData[]>>({});
 
   useEffect(() => {
     if (!token) {
@@ -27,7 +27,7 @@ function useRawPrData(): {
       return;
     }
 
-    setData((data) => pick(data, repos));
+    setData((oldData) => pick(oldData, repos));
 
     const octokit = new Octokit({ auth: token });
 
@@ -44,24 +44,27 @@ function useRawPrData(): {
           repo,
           state: 'open',
         })
-        .then((res) => {
-          setData((data) => ({
-            ...data,
-            [fullRepo]: res.data.map((pr) => ({ pr, loading: true })),
+        // @ts-expect-error TODO - Resolve
+        .then((pullRequests) => {
+          setData((oldData) => ({
+            ...oldData,
+            // @ts-expect-error TODO - Resolve
+            [fullRepo]: pullRequests.data.map((pr) => ({ pr, loading: true })),
           }));
 
-          res.data.forEach((pr) => {
+          // @ts-expect-error TODO - Resolve
+          pullRequests.data.forEach((pr) => {
             fetchPrData(token, {
               number: pr.number,
               login: pr.user?.login ?? '',
               owner,
               repo,
-            }).then((res) =>
-              setData((data) => ({
-                ...data,
-                [fullRepo]: (data[fullRepo] || []).map((d) =>
+            }).then((pullRequestData) =>
+              setData((oldData) => ({
+                ...oldData,
+                [fullRepo]: (oldData[fullRepo] || []).map((d) =>
                   d.pr.number === pr.number
-                    ? { ...d, ...res, loading: false }
+                    ? { ...d, ...pullRequestData, loading: false }
                     : d,
                 ),
               })),
@@ -80,7 +83,7 @@ function useRawPrData(): {
 
 export default function usePrData(): {
   runTime: number;
-  data: Array<{ label: string; data: PrData[] }>;
+  data: { label: string; data: PrData[] }[];
   refresh: () => void;
 } {
   const login = useLogin();
@@ -98,7 +101,7 @@ export default function usePrData(): {
         )
       : data;
 
-    const grouped: { [key: string]: PrData[] } = {};
+    const grouped: Record<string, PrData[]> = {};
 
     filtered.forEach((d) => {
       switch (grouping) {
@@ -118,8 +121,8 @@ export default function usePrData(): {
           uniq([
             ...Object.keys(d.reviews || []),
             ...(d.pr.requested_reviewers || []).map((rr) => rr.login),
-          ]).forEach((login) => {
-            grouped[login] = [...(grouped[login] || []), d];
+          ]).forEach((reviewerLogin) => {
+            grouped[reviewerLogin] = [...(grouped[reviewerLogin] || []), d];
           });
           break;
         default:
@@ -129,9 +132,9 @@ export default function usePrData(): {
     });
 
     return sortBy(
-      Object.entries(grouped).map(([group, data]) => ({
+      Object.entries(grouped).map(([group, prData]) => ({
         label: group,
-        data: sortBy(data, ({ pr }) => [!pr.draft, pr.updated_at]).reverse(),
+        data: sortBy(prData, ({ pr }) => [!pr.draft, pr.updated_at]).reverse(),
       })),
       ({ label }) => [label !== login, label.toLowerCase()],
     );
