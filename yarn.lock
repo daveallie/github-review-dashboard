@@ -2132,14 +2132,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.57.1, @eslint/js@npm:^8.57.1":
+"@eslint/js@npm:8.57.1":
   version: 8.57.1
   resolution: "@eslint/js@npm:8.57.1"
   checksum: 10c0/b489c474a3b5b54381c62e82b3f7f65f4b8a5eaaed126546520bf2fede5532a8ed53212919fed1e9048dcf7f37167c8561d58d0ba4492a4244004e7793805223
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.39.1":
+"@eslint/js@npm:9.39.1, @eslint/js@npm:^9.0.0":
   version: 9.39.1
   resolution: "@eslint/js@npm:9.39.1"
   checksum: 10c0/6f7f26f8cdb7ad6327bbf9741973b6278eb946f18f70e35406e88194b0d5c522d0547a34a02f2a208eec95c5d1388cdf7ccb20039efd2e4cb6655615247a50f1
@@ -7338,7 +7338,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.3.0, eslint@npm:^8.57.1":
+"eslint@npm:^8.3.0":
   version: 8.57.1
   resolution: "eslint@npm:8.57.1"
   dependencies:
@@ -7386,7 +7386,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9":
+"eslint@npm:^9, eslint@npm:^9.0.0":
   version: 9.39.1
   resolution: "eslint@npm:9.39.1"
   dependencies:
@@ -8215,7 +8215,7 @@ __metadata:
     "@emotion/react": "npm:^11.14.0"
     "@emotion/styled": "npm:^11.14.1"
     "@eslint/compat": "npm:^2.0.0"
-    "@eslint/js": "npm:^8.57.1"
+    "@eslint/js": "npm:^9.0.0"
     "@octokit/types": "npm:^16.0.0"
     "@stylistic/eslint-plugin": "npm:^5.6.1"
     "@testing-library/jest-dom": "npm:^6.9.1"
@@ -8227,7 +8227,7 @@ __metadata:
     "@types/node": "npm:^24.10.1"
     "@types/react": "npm:^19.2.6"
     "@types/react-dom": "npm:^19.2.3"
-    eslint: "npm:^8.57.1"
+    eslint: "npm:^9.0.0"
     eslint-config-airbnb-extended: "npm:^2.3.2"
     eslint-config-prettier: "npm:^10.1.8"
     eslint-import-resolver-typescript: "npm:^4.4.4"

@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.0",
-    "@eslint/js": "^8.57.1",
+    "@eslint/js": "^9.0.0",
     "@stylistic/eslint-plugin": "^5.6.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
@@ -28,7 +28,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^8.57.1",
+    "eslint": "^9.0.0",
     "eslint-config-airbnb-extended": "^2.3.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
