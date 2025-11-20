@@ -58,30 +58,26 @@ export default function TokenForm() {
       </div>
       <Divider />
       <Heading size="lg">Guide</Heading>
-      <Container>
-        <OrderedList>
-          <ListItem>
-            Head to{' '}
-            <Link
-              href="https://github.com/settings/personal-access-tokens/new"
-              isExternal
-            >
-              https://github.com/settings/personal-access-tokens/new
-            </Link>
-          </ListItem>
-          <ListItem>Give the token a name and expiration</ListItem>
-          <ListItem>
-            Select the resource owner and specific repositories
-          </ListItem>
-          <ListItem>
-            Under repository permissions, grant <b>read-only</b> access to{' '}
-            <b>Pull requests</b>
-          </ListItem>
-          <ListItem>
-            Click <b>Generate token</b> and copy the token to the input above
-          </ListItem>
-        </OrderedList>
-      </Container>
+      <OrderedList>
+        <ListItem>
+          Head to{' '}
+          <Link
+            href="https://github.com/settings/personal-access-tokens/new"
+            isExternal
+          >
+            https://github.com/settings/personal-access-tokens/new
+          </Link>
+        </ListItem>
+        <ListItem>Give the token a name and expiration</ListItem>
+        <ListItem>Select the resource owner and specific repositories</ListItem>
+        <ListItem>
+          Under repository permissions, grant <b>read-only</b> access to{' '}
+          <b>Pull requests</b>
+        </ListItem>
+        <ListItem>
+          Click <b>Generate token</b> and copy the token to the input above
+        </ListItem>
+      </OrderedList>
     </Stack>
   );
 }

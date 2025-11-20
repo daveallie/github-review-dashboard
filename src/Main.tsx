@@ -32,7 +32,11 @@ export default function Main() {
   }, [progress, refresh]);
 
   if (!token) {
-    return <TokenForm />;
+    return (
+      <Container>
+        <TokenForm />
+      </Container>
+    );
   }
 
   return (
