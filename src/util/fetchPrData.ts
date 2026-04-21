@@ -14,11 +14,9 @@ export default async function fetchPrData(
       repo: pr.repo,
       pull_number: pr.number,
     })
-    // @ts-expect-error TODO - Resolve
     .then((reviewsData) =>
       mapValues(
         groupBy(
-          // @ts-expect-error TODO - Resolve
           reviewsData.data.filter((r) => r.user?.login !== pr.login),
           'user.login',
         ),
@@ -32,7 +30,6 @@ export default async function fetchPrData(
       repo: pr.repo,
       pull_number: pr.number,
     })
-    // @ts-expect-error TODO - Resolve
     .then((commitData) => commitData.data);
 
   return Promise.all([reviewsPromise, commitsPromise]).then(

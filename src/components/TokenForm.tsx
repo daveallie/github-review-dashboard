@@ -20,6 +20,7 @@ export default function TokenForm() {
 
   useEffect(() => {
     if (tokenContext.token) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLocalToken(tokenContext.token);
     }
   }, [tokenContext.token]);

@@ -14,7 +14,6 @@ export default function useLogin() {
     const octokit = new Octokit({ auth: token });
     octokit.rest.users
       .getAuthenticated()
-      // @ts-expect-error TODO - Resolve
       .then((res) => setLogin(res.data.login));
   }, [token]);
 

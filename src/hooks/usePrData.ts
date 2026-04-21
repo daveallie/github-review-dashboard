@@ -14,6 +14,7 @@ function useRawPrData(): {
 } {
   const { token } = useGithubToken();
   const { repos } = useConfig().config;
+  // eslint-disable-next-line react-hooks/purity
   const [runTime, setRunTime] = useState(Date.now());
   const [data, setData] = useState<Record<string, PrData[]>>({});
 
@@ -23,6 +24,7 @@ function useRawPrData(): {
     }
 
     if (repos.length === 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setData({});
       return;
     }
@@ -44,15 +46,12 @@ function useRawPrData(): {
           repo,
           state: 'open',
         })
-        // @ts-expect-error TODO - Resolve
         .then((pullRequests) => {
           setData((oldData) => ({
             ...oldData,
-            // @ts-expect-error TODO - Resolve
             [fullRepo]: pullRequests.data.map((pr) => ({ pr, loading: true })),
           }));
 
-          // @ts-expect-error TODO - Resolve
           pullRequests.data.forEach((pr) => {
             fetchPrData(token, {
               number: pr.number,
