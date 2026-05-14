@@ -40,19 +40,20 @@ function useRawPrData(): {
         return;
       }
 
-      octokit.rest.pulls
-        .list({
+      octokit
+        .paginate(octokit.rest.pulls.list, {
           owner,
           repo,
           state: 'open',
+          per_page: 100,
         })
         .then((pullRequests) => {
           setData((oldData) => ({
             ...oldData,
-            [fullRepo]: pullRequests.data.map((pr) => ({ pr, loading: true })),
+            [fullRepo]: pullRequests.map((pr) => ({ pr, loading: true })),
           }));
 
-          pullRequests.data.forEach((pr) => {
+          pullRequests.forEach((pr) => {
             fetchPrData(token, {
               number: pr.number,
               login: pr.user?.login ?? '',
