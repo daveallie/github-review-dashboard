@@ -781,12 +781,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:^16.2.10":
-  version: 16.2.10
-  resolution: "@next/eslint-plugin-next@npm:16.2.10"
+"@next/eslint-plugin-next@npm:^16.2.12":
+  version: 16.2.12
+  resolution: "@next/eslint-plugin-next@npm:16.2.12"
   dependencies:
     fast-glob: "npm:3.3.1"
-  checksum: 10c0/05ac24ad9545696e437a9a61437dda0dd05ad2755e42b8c1fd0fe0e7d607b48f4be2eb4ca0ab7a8452872a7a88f0c9aa52eaf424158675321ff9008cf09c0e31
+  checksum: 10c0/c44cd10033ea95b30fa3b2cc15e94af2ac06183f481f283fd045964837d47bd2156c563db2d739988ee9b42baed4d7c8101eaaddbcaef667ce20f8985f5cca5c
   languageName: node
   linkType: hard
 
@@ -2646,10 +2646,10 @@ __metadata:
   linkType: hard
 
 "eslint-config-airbnb-extended@npm:^3.1.0":
-  version: 3.1.1
-  resolution: "eslint-config-airbnb-extended@npm:3.1.1"
+  version: 3.2.0
+  resolution: "eslint-config-airbnb-extended@npm:3.2.0"
   dependencies:
-    "@next/eslint-plugin-next": "npm:^16.2.10"
+    "@next/eslint-plugin-next": "npm:^16.2.12"
     "@stylistic/eslint-plugin": "npm:^5.10.0"
     confusing-browser-globals: "npm:^1.0.11"
     eslint-import-resolver-typescript: "npm:^4.4.5"
@@ -2659,14 +2659,15 @@ __metadata:
     eslint-plugin-n: "npm:^18.2.2"
     eslint-plugin-react: "npm:^7.37.5"
     eslint-plugin-react-hooks: "npm:^7.1.1"
-    globals: "npm:^17.7.0"
-    typescript-eslint: "npm:^8.63.0"
+    get-tsconfig: "npm:^4.14.0"
+    globals: "npm:^17.8.0"
+    typescript-eslint: "npm:^8.65.0"
   peerDependencies:
     eslint: ^9.0.0
   peerDependenciesMeta:
     eslint:
       optional: false
-  checksum: 10c0/78a9a811a9f22bdf898b732a6dbd0ff75d13ccd190c61e45ff998e80ef1e2f46df44305d34b0b7254f8e25f7f925cee873c80ecb4928f48a9ef527ea7dcc4ec6
+  checksum: 10c0/d114c5b5fec879cc68ca9a14b1767f3e3bd34ada369b6b383ca9897041976aa212426c485ab7f48781d287936ad5c7973adf9c65595428d17de55b75502d54ef
   languageName: node
   linkType: hard
 
@@ -3367,12 +3368,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-tsconfig@npm:^4.10.1, get-tsconfig@npm:^4.8.1":
-  version: 4.14.0
-  resolution: "get-tsconfig@npm:4.14.0"
+"get-tsconfig@npm:^4.10.1, get-tsconfig@npm:^4.14.0, get-tsconfig@npm:^4.8.1":
+  version: 4.14.1
+  resolution: "get-tsconfig@npm:4.14.1"
   dependencies:
     resolve-pkg-maps: "npm:^1.0.0"
-  checksum: 10c0/abc2b9275468eb589079a0b7a95eb5107c14fdd0ca6dda1bff116fe774ea1f79975421dcb22a0c86b4f820fcc69a7655dddf9b6d6a8a2c06fcb59e19794c0724
+  checksum: 10c0/c5e5d8fd298be9bc554b8ca3708a76732c27f632cd9b902c1d41b23ad1f4b6fefbe4dbdecd2fee84994d1ebf46e8cc50dd575fcff1b7ffafcdf6e2e0809a0337
   languageName: node
   linkType: hard
 
@@ -3464,7 +3465,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^17.5.0, globals@npm:^17.7.0":
+"globals@npm:^17.5.0, globals@npm:^17.8.0":
   version: 17.9.0
   resolution: "globals@npm:17.9.0"
   checksum: 10c0/776116bffb916e462d548c26a44c9a5d8f4e551935a883991e9f5d68cbcb21b63e4c688e36bbc564f97d3025e304d8b2bb0a611ecf944825aeee164898dcfbdd
@@ -5809,7 +5810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-eslint@npm:^8.59.0, typescript-eslint@npm:^8.63.0":
+"typescript-eslint@npm:^8.59.0, typescript-eslint@npm:^8.65.0":
   version: 8.65.0
   resolution: "typescript-eslint@npm:8.65.0"
   dependencies:
