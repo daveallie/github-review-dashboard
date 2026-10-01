@@ -963,6 +963,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@octokit/openapi-types@npm:^29.0.1":
+  version: 29.0.1
+  resolution: "@octokit/openapi-types@npm:29.0.1"
+  checksum: 10c0/1f1550a7877bb23584396a976d3f3b71c8496a86c135072050ff7ddfc0cd816804373ccc233bafab3a31a0178114e2599846cf54416f32f310712fc05699c5f7
+  languageName: node
+  linkType: hard
+
 "@octokit/openapi-webhooks-types@npm:12.0.3":
   version: 12.0.3
   resolution: "@octokit/openapi-webhooks-types@npm:12.0.3"
@@ -1054,6 +1061,15 @@ __metadata:
   dependencies:
     "@octokit/openapi-types": "npm:^27.0.0"
   checksum: 10c0/b8d41098ba6fc194d13d641f9441347e3a3b96c0efabac0e14f57319340a2d4d1c8676e4cb37ab3062c5c323c617e790b0126916e9bf7b201b0cced0826f8ae2
+  languageName: node
+  linkType: hard
+
+"@octokit/types@npm:^18.0.0":
+  version: 18.0.0
+  resolution: "@octokit/types@npm:18.0.0"
+  dependencies:
+    "@octokit/openapi-types": "npm:^29.0.1"
+  checksum: 10c0/d7336d2a4176684820388a6c6cf5bc8249672fad1f81f641c6ac30d2da123c0475fb752d3b16edf7cd3715e8fb01d3765c0e2f7ed724a6fbf7f84a1becd04bb5
   languageName: node
   linkType: hard
 
@@ -3343,7 +3359,7 @@ __metadata:
     "@emotion/styled": "npm:^11.14.1"
     "@eslint/compat": "npm:^2.0.5"
     "@eslint/js": "npm:^9.39.4"
-    "@octokit/types": "npm:^16.0.0"
+    "@octokit/types": "npm:^18.0.0"
     "@stylistic/eslint-plugin": "npm:^5.10.0"
     "@total-typescript/ts-reset": "npm:^0.6.1"
     "@types/eslint-plugin-jsx-a11y": "npm:^6.10.1"
